@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
+import Loading from "./Loading";
 
 function Shop() {
   const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [filter, setFilter] = useState("pickaxe");
 
   const apiKey = "cd4ceff4-1970c5ca-36d1c43a-7bb37743";
   const url = "https://fortniteapi.io/v2/items/list?lang=en";
@@ -12,23 +15,47 @@ function Shop() {
       },
     });
     const response = await data.json();
-    console.log(response.items);
+
     setItems(response.items);
+    setLoading(false);
   };
+  const handleClick = (e) => {
+    setFilter(e.target.value);
+  };
+
   useEffect(() => {
     fetchItems();
   }, []);
+
   return (
     <div className="shop">
-      {items
-        .filter((ele) => ele.type.id === "pickaxe")
-        .splice(0, 10)
-        .map((item) => (
-          <div key={item.id} className="name">
-            <h3>{item.name}</h3>
-            <img src={item.images.icon} alt={item.name} />
-          </div>
-        ))}
+      <div className="types">
+        <button value="pickaxe" type="button" onClick={handleClick}>
+          Pickaxes
+        </button>
+        <button value="glider" type="button" onClick={handleClick}>
+          Gliders
+        </button>
+        <button value="backpack" type="button" onClick={handleClick}>
+          Backpacks
+        </button>
+      </div>
+      <div className="items">
+        {loading ? (
+          <Loading />
+        ) : (
+          items
+            .filter((ele) => ele.type.id === filter)
+            .splice(0, 10)
+            .map((item) => (
+              <div key={item.id} className="item">
+                <h3>{item.name}</h3>
+                <p>Price: 0</p>
+                <img src={item.images.icon} alt={item.name} />
+              </div>
+            ))
+        )}
+      </div>
     </div>
   );
 }

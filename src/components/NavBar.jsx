@@ -1,7 +1,8 @@
+import { func } from "prop-types";
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Nav() {
+function Nav({ cartNavi }) {
   return (
     <div className="nav">
       <div className="logo">
@@ -11,8 +12,14 @@ function Nav() {
         <Link to="/shop">Shop</Link>
         <Link to="/about">About</Link>
       </ul>
+      <button className="nav-cart" type="button" onClick={cartNavi}>
+        Cart
+      </button>
     </div>
   );
 }
+Nav.propTypes = {
+  cartNavi: func.isRequired,
+};
 
 export default Nav;
