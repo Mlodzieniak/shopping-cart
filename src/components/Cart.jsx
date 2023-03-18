@@ -3,17 +3,22 @@
 import React from "react";
 import { arrayOf, number, object, func } from "prop-types";
 
-function Cart({ items, position, cartNavi }) {
-  //   const [cartPos] = useState(position);
-  //   useEffect(() => {
-  //     console.log(`Cart pos from Fart${cartPos}`);
-  //   }, [position]);
+function Cart({ items, position, cartNavi, removeFromCart }) {
   return (
     <div className="cart" style={{ transform: `translateX(${position}vw)` }}>
       <h3>Cart</h3>
       <div className="list">
         {items.map((item) => (
-          <div className="cart-item">{item}</div>
+          <div key={item.id} className="cart-item">
+            <p>{item.name}</p>
+            <button
+              className="delete-from-cart-btn"
+              type="button"
+              onClick={() => removeFromCart(item)}
+            >
+              X
+            </button>
+          </div>
         ))}
       </div>
       <button type="button">Checkout</button>
@@ -31,6 +36,7 @@ Cart.propTypes = {
   items: arrayOf(object),
   position: number.isRequired,
   cartNavi: func.isRequired,
+  removeFromCart: func.isRequired,
 };
 
 export default Cart;

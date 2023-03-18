@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { func } from "prop-types";
 import Loading from "./Loading";
 
-function Shop() {
+function Shop({ addToCart }) {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("pickaxe");
@@ -52,6 +53,13 @@ function Shop() {
                 <h3>{item.name}</h3>
                 <p>Price: 0</p>
                 <img src={item.images.icon} alt={item.name} />
+                <button
+                  className="add-btn"
+                  type="button"
+                  onClick={() => addToCart(item)}
+                >
+                  Add to Cart
+                </button>
               </div>
             ))
         )}
@@ -59,5 +67,7 @@ function Shop() {
     </div>
   );
 }
-
+Shop.propTypes = {
+  addToCart: func.isRequired,
+};
 export default Shop;
