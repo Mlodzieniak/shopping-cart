@@ -18,12 +18,15 @@ function Shop({ addToCart }) {
     const response = await data.json();
 
     setItems(response.items);
+    // console.log(response.items);
     setLoading(false);
   };
   const handleClick = (e) => {
     setFilter(e.target.value);
   };
-
+  const addHandler = (item) => {
+    addToCart(item);
+  };
   useEffect(() => {
     fetchItems();
   }, []);
@@ -47,19 +50,26 @@ function Shop({ addToCart }) {
         ) : (
           items
             .filter((ele) => ele.type.id === filter)
-            .splice(0, 10)
+            .filter((ele) => ele.price > 0)
+            .splice(0, 20)
             .map((item) => (
-              <div key={item.id} className="item">
-                <h3>{item.name}</h3>
-                <p>Price: 0</p>
-                <img src={item.images.icon} alt={item.name} />
-                <button
-                  className="add-btn"
-                  type="button"
-                  onClick={() => addToCart(item)}
-                >
-                  Add to Cart
-                </button>
+              <div key={item.id} className="shop-item-wrapper">
+                <img
+                  className="shop-item-img"
+                  src={item.images.icon}
+                  alt={item.name}
+                />
+                <div className="shop-item-props">
+                  <h3>{item.name}</h3>
+                  <p>Price: {item.price}</p>
+                  <button
+                    className="add-btn"
+                    type="button"
+                    onClick={() => addHandler(item)}
+                  >
+                    Add to Cart
+                  </button>
+                </div>
               </div>
             ))
         )}

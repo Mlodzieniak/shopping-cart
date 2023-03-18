@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { createContext, useCallback, useState } from "react";
 import "./styles/App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from "./components/Homepage";
@@ -8,6 +8,8 @@ import Item from "./components/Item";
 import About from "./components/About";
 import Cart from "./components/Cart";
 
+export const RemoverContext = createContext();
+
 function App() {
   const [cartPos, setPosCart] = useState(40);
   const [cartItems, setCartItems] = useState([]);
@@ -16,31 +18,32 @@ function App() {
     return result;
   };
   const addToCart = (newItem) => {
-    setCartItems([...cartItems, newItem]);
+    if (!cartItems.includes(newItem)) setCartItems([...cartItems, newItem]);
   };
-  const removeFromCart = (itemToRemove) => {
-    const newArr = [...cartItems].filter((ele) => ele.id !== itemToRemove.id);
-    setCartItems(newArr);
-  };
+  const removeFromCart = useCallback((itemToRemove) => {
+    setCartItems([...cartItems].filter((ele) => ele.id !== itemToRemove.id));
+  });
 
   return (
     <Router>
-      <div className="App">
-        <Nav cartNavi={moveCart} />
-        <Cart
-          position={cartPos}
-          cartNavi={moveCart}
-          items={cartItems}
-          removeFromCart={removeFromCart}
-        />
+      <RemoverContext.Provider value={removeFromCart}>
+        <div className="App">
+          <Nav cartNavi={moveCart} />
+          <Cart
+            position={cartPos}
+            cartNavi={moveCart}
+            items={cartItems}
+            // removeFromCart={removeFromCart}
+          />
 
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/shop" element={<Shop addToCart={addToCart} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/item" element={<Item />} />
-        </Routes>
-      </div>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/shop" element={<Shop addToCart={addToCart} />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/item" element={<Item />} />
+          </Routes>
+        </div>
+      </RemoverContext.Provider>
     </Router>
   );
 }
