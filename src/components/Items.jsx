@@ -45,7 +45,7 @@ function Items({ addToCart, itemType }) {
               />
               <div className="shop-item-props">
                 <h3>{item.name}</h3>
-                <p>{item.price}</p>
+                <p className="price">{item.price}</p>
                 <Link to={`/item/${item.id}`}>
                   <button
                     className="info-btn"

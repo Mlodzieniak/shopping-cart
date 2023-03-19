@@ -10,7 +10,6 @@ function Shop({ addToCart }) {
   const backpack = location.pathname === "/shop/backpacks";
   const isActive = (path) => (path ? "type-btn active-type" : "type-btn");
 
-  // const buttonClassName = isPickaxe ? "type-btn active-type" : "type-btn";
   return (
     <div className="shop">
       <div className="shop-types">

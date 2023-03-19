@@ -194,24 +194,24 @@ button {
     width: 100%;
     font-weight: 700;
     font-size: 1rem;
-    box-sizing: border-box;
     box-shadow: inset 0 0 0 0 var(--lb);
     -webkit-transition: ease-out 0.2s;
     -moz-transition: ease-out 0.2s;
     transition: ease-out 0.2s;
+    border: none;
+    cursor: pointer;
 }
 
+
+
+.active-type {
+    border-bottom: solid 2px black;
+}
 
 .type-btn:hover,
-.active-type {
-    border-color: beige;
-    color: beige;
-    box-shadow: inset 400px 0 0 0 var(--lb);
-}
-
 .type-btn:active {
     scale: 0.95;
-    transition: none;
+    border-bottom: solid 5px black;
 }
 
 .shop-item-wrapper {
@@ -219,6 +219,7 @@ button {
     padding: 1rem;
     display: flex;
     justify-content: space-between;
+    /* border: solid 3px linear-gradient(180deg, crimson, var(--lb)); */
 }
 
 .shop-item-img {
