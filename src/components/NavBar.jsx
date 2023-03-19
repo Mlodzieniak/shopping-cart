@@ -9,7 +9,7 @@ function Nav({ cartNavi }) {
         <Link to="/">SHOPLOGO</Link>
       </div>
       <ul className="nav-ul">
-        <Link to="/shop/pickaxes">Shop</Link>
+        <Link to="/shop">Shop</Link>
         <Link to="/about">About</Link>
       </ul>
       <button className="nav-cart" type="button" onClick={cartNavi}>

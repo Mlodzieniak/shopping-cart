@@ -30,19 +30,16 @@ function App() {
       <RemoverContext.Provider value={removeFromCart}>
         <div className="App">
           <Nav cartNavi={moveCart} />
-          <Cart
-            position={cartPos}
-            cartNavi={moveCart}
-            items={cartItems}
-            // removeFromCart={removeFromCart}
-          />
+          <Cart position={cartPos} cartNavi={moveCart} items={cartItems} />
 
           <Routes>
             <Route path="/" element={<Homepage />} />
-            <Route
-              path="/shop/pickaxes"
-              element={<Shop addToCart={addToCart} />}
-            />
+            <Route path="/shop/*" element={<Shop addToCart={addToCart} />} />
+            {/* <Route
+              path="/shop"
+              element={<Pickaxes addToCart={addToCart} itemType="pickaxes" />}
+            /> */}
+
             <Route path="/about" element={<About />} />
             <Route path="/item" element={<Item />} />
           </Routes>
