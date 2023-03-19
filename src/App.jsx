@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import React, { createContext, useCallback, useState } from "react";
 import "./styles/App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -38,7 +39,10 @@ function App() {
 
           <Routes>
             <Route path="/" element={<Homepage />} />
-            <Route path="/shop" element={<Shop addToCart={addToCart} />} />
+            <Route
+              path="/shop/pickaxes"
+              element={<Shop addToCart={addToCart} />}
+            />
             <Route path="/about" element={<About />} />
             <Route path="/item" element={<Item />} />
           </Routes>

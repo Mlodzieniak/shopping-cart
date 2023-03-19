@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { func } from "prop-types";
+import { Link } from "react-router-dom";
 import Loading from "./Loading";
 import { ReactComponent as AddIcon } from "./svg/box-svgrepo-com.svg";
 
@@ -35,15 +36,18 @@ function Shop({ addToCart }) {
   return (
     <div className="shop">
       <div className="types">
-        <button value="pickaxe" type="button" onClick={handleClick}>
+        {/* <button value="pickaxe" type="button" onClick={handleClick}>
           Pickaxes
         </button>
-        <button value="glider" type="button" onClick={handleClick}>
+                <button value="glider" type="button" onClick={handleClick}>
           Gliders
         </button>
         <button value="backpack" type="button" onClick={handleClick}>
           Backpacks
-        </button>
+        </button> */}
+        <Link to="/shop/pickaxes"> Pickaxes</Link>
+        <Link to="/shop/gliders"> Gliders</Link>
+        <Link to="/shop/backpacks"> Backpacks</Link>
       </div>
       <div className="items">
         {loading ? (
