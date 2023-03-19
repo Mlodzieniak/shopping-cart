@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import Nav from "./components/NavBar";
 import Shop from "./components/Shop";
-import Item from "./components/Item";
+import ItemDetails from "./components/ItemDetail";
 import About from "./components/About";
 import Cart from "./components/Cart";
 
@@ -35,13 +35,11 @@ function App() {
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/shop/*" element={<Shop addToCart={addToCart} />} />
-            {/* <Route
-              path="/shop"
-              element={<Pickaxes addToCart={addToCart} itemType="pickaxes" />}
-            /> */}
-
             <Route path="/about" element={<About />} />
-            <Route path="/item" element={<Item />} />
+            <Route
+              path="/item/:id"
+              element={<ItemDetails addToCart={addToCart} />}
+            />
           </Routes>
         </div>
       </RemoverContext.Provider>

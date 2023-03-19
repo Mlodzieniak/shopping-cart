@@ -5,6 +5,10 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+:root {
+    --nav-bar-height: 5vh
+}
+
 body {
     position: relative;
     overflow-x: hidden;
@@ -13,8 +17,9 @@ body {
 .nav {
     display: flex;
     justify-content: space-around;
-    padding: 2rem;
+    /* padding: 2rem; */
     background-color: beige;
+    height: var(--nav-bar-height);
 }
 
 .nav * {
@@ -97,6 +102,13 @@ body {
     width: 100%;
 }
 
+.item-details {
+    height: calc(100vh - var(--nav-bar-height));
+    border: 2px solid crimson;
+    background: linear-gradient(40grad, crimson, cornflowerblue);
+    /* border-color: ; */
+}
+
 
 
 button {
@@ -128,7 +140,8 @@ button {
     width: 200px;
 }
 
-.add-btn {
+.add-btn,
+.info-btn {
     display: flex;
     background: none;
     padding: 0.5rem;
@@ -137,6 +150,7 @@ button {
     align-items: center;
     gap: 0.3rem;
     font-weight: 700;
+    cursor: pointer;
 }
 
 .add-btn svg {

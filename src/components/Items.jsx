@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { func, string } from "prop-types";
+import { Link } from "react-router-dom";
 import Loading from "./Loading";
 import { ReactComponent as AddIcon } from "./svg/box-svgrepo-com.svg";
 
@@ -15,7 +16,6 @@ function Items({ addToCart, itemType }) {
       },
     });
     const response = await data.json();
-
     setItems(response.items);
     setLoading(false);
   };
@@ -28,7 +28,7 @@ function Items({ addToCart, itemType }) {
   }, []);
 
   return (
-    <div className="pickaxes">
+    <div className="items">
       {loading ? (
         <Loading />
       ) : (
@@ -45,7 +45,16 @@ function Items({ addToCart, itemType }) {
               />
               <div className="shop-item-props">
                 <h3>{item.name}</h3>
-                <p>Price: {item.price}</p>
+                <p>{item.price}</p>
+                <Link to={`/item/${item.id}`}>
+                  <button
+                    className="info-btn"
+                    type="button"
+                    // onClick={() => addHandler(item)}
+                  >
+                    <p>More Info</p>
+                  </button>
+                </Link>
                 <button
                   className="add-btn"
                   type="button"
