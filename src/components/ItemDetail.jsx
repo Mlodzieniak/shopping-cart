@@ -37,17 +37,29 @@ function ItemDetail({ addToCart }) {
       {loading ? (
         <Loading />
       ) : (
-        <div key={details.id} className="detail-item-wrapper">
-          <Link to={`/shop/${details.type.id}s`}>Go Back</Link>
+        <div key={details.id} className="detail-wrapper">
+          <Link to={`/shop/${details.type.id}s`}>
+            <button type="button" className="back-btn">
+              Go Back
+            </button>
+          </Link>
 
           <img
-            className="shop-item-img"
-            src={details.images.icon}
+            className="detail-img"
+            src={details.images.featured}
             alt={details.name}
           />
-          <div className="shop-item-props">
-            <h3>{details.name}</h3>
-            <p>{details.price}</p>
+          <div className="detail-props">
+            <div className="detail-info">
+              <h3>{details.name}</h3>
+              <p>{details.rarity.name}</p>
+              <p>{details.description}</p>
+              {details.set ? <p>{details.set.partOf}</p> : ""}
+              {/* <p>{details.set.partOf}</p> */}
+              <p>Available from: {details.releaseDate}</p>
+              {/* <p> {details.releaseDate}</p> */}
+              <p className="price">{details.price}</p>
+            </div>
 
             <button
               className="add-btn"

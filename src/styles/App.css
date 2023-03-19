@@ -6,7 +6,8 @@
 }
 
 :root {
-    --nav-bar-height: 5vh
+    --nav-bar-height: 5vh;
+    --lb: #3498db
 }
 
 body {
@@ -48,6 +49,7 @@ body {
     top: 0;
     right: 0;
     transition: ease-in-out 0.2s;
+    z-index: 10;
 }
 
 .cart {
@@ -104,11 +106,50 @@ body {
 
 .item-details {
     height: calc(100vh - var(--nav-bar-height));
-    border: 2px solid crimson;
-    background: linear-gradient(40grad, crimson, cornflowerblue);
-    /* border-color: ; */
+    background: radial-gradient(beige, var(--lb));
+    position: relative;
 }
 
+.detail-wrapper {
+    height: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: stretch;
+    justify-content: space-between;
+    color: beige;
+}
+
+.detail-img {
+    /* width: 60% */
+    height: 100%;
+}
+
+.detail-props {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2.3rem;
+}
+
+.detail-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: flex-end;
+}
+
+.price {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    height: 3rem;
+}
+
+.price::after {
+    content: "$";
+
+}
 
 
 button {
@@ -130,7 +171,7 @@ button {
 }
 
 .shop-item-wrapper {
-    background-color: #3498db;
+    background-color: var(--lb);
     padding: 1rem;
     display: flex;
     justify-content: space-between;
@@ -141,7 +182,8 @@ button {
 }
 
 .add-btn,
-.info-btn {
+.info-btn,
+.back-btn {
     display: flex;
     background: none;
     padding: 0.5rem;
@@ -151,6 +193,12 @@ button {
     gap: 0.3rem;
     font-weight: 700;
     cursor: pointer;
+}
+
+.back-btn {
+    position: absolute;
+    top: 2rem;
+    left: 3rem;
 }
 
 .add-btn svg {

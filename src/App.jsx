@@ -19,7 +19,8 @@ function App() {
     return result;
   };
   const addToCart = (newItem) => {
-    if (!cartItems.includes(newItem)) setCartItems([...cartItems, newItem]);
+    if (!cartItems.find((ele) => ele.id === newItem.id))
+      setCartItems([...cartItems, newItem]);
   };
   const removeFromCart = useCallback((itemToRemove) => {
     setCartItems([...cartItems].filter((ele) => ele.id !== itemToRemove.id));
