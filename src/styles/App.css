@@ -15,17 +15,17 @@ body {
     overflow-x: hidden;
 }
 
+a {
+    list-style-type: none;
+    text-decoration: none;
+}
+
 .nav {
     display: flex;
     justify-content: space-around;
     /* padding: 2rem; */
     background-color: beige;
     height: var(--nav-bar-height);
-}
-
-.nav * {
-    list-style-type: none;
-    text-decoration: none;
 }
 
 .nav-ul {
@@ -37,7 +37,7 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    width: 40vw;
+    /* width: 40vw; */
 }
 
 .cart-wrapper {
@@ -168,6 +168,50 @@ button {
     width: 120px;
     height: 120px;
     animation: spin 2s linear infinite;
+}
+
+.shop {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    gap: 2rem;
+}
+
+.shop-types {
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: calc(100vh - var(--nav-bar-height));
+    top: 0;
+    padding: 2rem 1rem;
+    justify-content: center;
+
+}
+
+.type-btn {
+    background: none;
+    width: 100%;
+    font-weight: 700;
+    font-size: 1rem;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 0 0 var(--lb);
+    -webkit-transition: ease-out 0.2s;
+    -moz-transition: ease-out 0.2s;
+    transition: ease-out 0.2s;
+}
+
+
+.type-btn:hover,
+.active-type {
+    border-color: beige;
+    color: beige;
+    box-shadow: inset 400px 0 0 0 var(--lb);
+}
+
+.type-btn:active {
+    scale: 0.95;
+    transition: none;
 }
 
 .shop-item-wrapper {
