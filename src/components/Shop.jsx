@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { func } from "prop-types";
 import Loading from "./Loading";
+import { ReactComponent as AddIcon } from "./svg/box-svgrepo-com.svg";
 
 function Shop({ addToCart }) {
   const [items, setItems] = useState([]);
@@ -67,7 +68,10 @@ function Shop({ addToCart }) {
                     type="button"
                     onClick={() => addHandler(item)}
                   >
-                    Add to Cart
+                    <p>Add to Cart</p>
+                    <div className="add-icon">
+                      <AddIcon />
+                    </div>
                   </button>
                 </div>
               </div>
