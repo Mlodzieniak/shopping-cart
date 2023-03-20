@@ -14,6 +14,7 @@ export const RemoverContext = createContext();
 function App() {
   const [cartPos, setPosCart] = useState(40);
   const [cartItems, setCartItems] = useState([]);
+
   const moveCart = () => {
     const result = cartPos === 0 ? setPosCart(40) : setPosCart(0);
     return result;

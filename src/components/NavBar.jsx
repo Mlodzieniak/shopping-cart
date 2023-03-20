@@ -1,17 +1,34 @@
 import { func } from "prop-types";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Nav({ cartNavi }) {
+  const location = useLocation();
+  const home = location.pathname === "/";
+  const shop = /shop/.test(location.pathname);
+  const about = location.pathname === "/about";
+
+  const isActive = (path) => (path ? "active-nav arrow-up" : "");
   return (
     <div className="nav">
-      <div className="logo">
-        <Link to="/">SHOPLOGO</Link>
+      <div className="nav-links">
+        <div className="logo">
+          <Link to="/">
+            <h3>FNSHOP</h3>
+            <div className={isActive(home)} />
+          </Link>
+        </div>
+        <div className="nav-ul">
+          <Link to="/shop/pickaxes">
+            <h3>Shop</h3>
+            <div className={isActive(shop)} />
+          </Link>
+          <Link to="/about">
+            <h3>About</h3>
+            <div className={isActive(about)} />
+          </Link>
+        </div>
       </div>
-      <ul className="nav-ul">
-        <Link to="/shop/pickaxes">Shop</Link>
-        <Link to="/about">About</Link>
-      </ul>
       <button className="nav-cart" type="button" onClick={cartNavi}>
         Cart
       </button>
