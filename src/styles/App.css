@@ -372,6 +372,25 @@ button {
     fill: beige;
 }
 
+.about {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--bei);
+}
+
+.about h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.about p {
+    margin-bottom: 20px;
+}
+
 
 @keyframes spin {
     0% {
