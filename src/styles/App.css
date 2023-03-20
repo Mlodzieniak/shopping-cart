@@ -7,12 +7,15 @@
 
 :root {
     --nav-bar-height: 5vh;
-    --lb: #3498db
+    --lb: #3498db;
+    --db: #010280;
+    --bei: beige;
 }
 
 body {
     position: relative;
     overflow-x: hidden;
+    /* background-color: beige; */
 }
 
 a {
@@ -143,7 +146,7 @@ a {
     font-weight: 700;
     display: flex;
     align-items: center;
-    height: 3rem;
+    /* height: 3rem; */
 }
 
 .price::after {
@@ -215,11 +218,21 @@ button {
 }
 
 .shop-item-wrapper {
-    background-color: var(--lb);
+    background: radial-gradient(var(--db), var(--lb));
     padding: 1rem;
     display: flex;
     justify-content: space-between;
-    /* border: solid 3px linear-gradient(180deg, crimson, var(--lb)); */
+    border: 5px solid transparent;
+    border-image: linear-gradient(to top, var(--db), var(--lb));
+    border-image-slice: 1;
+}
+
+.shop-item-props {
+    color: var(--bei);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
 .shop-item-img {
