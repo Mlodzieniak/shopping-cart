@@ -2,9 +2,8 @@ import React from "react";
 
 function Loading() {
   return (
-    <div className="loading">
+    <div className="loader-wrapper">
       <div className="loader" />
-      <p>Loading...</p>
     </div>
   );
 }

@@ -47,11 +47,7 @@ function Items({ addToCart, itemType }) {
                 <h3>{item.name}</h3>
                 <p className="price">{item.price}</p>
                 <Link to={`/item/${item.id}`}>
-                  <button
-                    className="info-btn"
-                    type="button"
-                    // onClick={() => addHandler(item)}
-                  >
+                  <button className="info-btn" type="button">
                     <p>More Info</p>
                   </button>
                 </Link>

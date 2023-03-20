@@ -29,7 +29,6 @@ function Shop({ addToCart }) {
           </button>
         </Link>
       </div>
-      {/* <div className="items"> */}
       <Routes>
         <Route
           path="/pickaxes"
@@ -44,7 +43,6 @@ function Shop({ addToCart }) {
           element={<Items addToCart={addToCart} itemType="backpack" />}
         />
       </Routes>
-      {/* </div> */}
     </div>
   );
 }
