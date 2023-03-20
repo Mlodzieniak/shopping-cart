@@ -1,11 +1,20 @@
 import React from "react";
-// import "./HomePage.css";
+import { Link } from "react-router-dom";
+import fortnite from "./img/fortnite.avif";
 
 function Homepage() {
   return (
     <div className="homepage">
-      <h1>Welcome to my website</h1>
-      <p>This is some text that will be displayed on top of the video</p>
+      <img src={fortnite} alt={fortnite} className="home-img" />
+      <Link to="/shop/pickaxes">
+        <div className="home-text">
+          <h1 className="text-with-background">FN-STORE</h1>
+          <p className="text-with-background">
+            Gear up for victory! Find everything you need in our Fortnite item
+            shop.
+          </p>
+        </div>
+      </Link>
     </div>
   );
 }

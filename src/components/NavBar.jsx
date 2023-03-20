@@ -1,6 +1,7 @@
 import { func } from "prop-types";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { ReactComponent as CartIcon } from "./svg/cart.svg";
 
 function Nav({ cartNavi }) {
   const location = useLocation();
@@ -14,7 +15,7 @@ function Nav({ cartNavi }) {
       <div className="nav-links">
         <div className="logo">
           <Link to="/">
-            <h3>FNSHOP</h3>
+            <h3>FN STORE</h3>
             <div className={isActive(home)} />
           </Link>
         </div>
@@ -29,8 +30,9 @@ function Nav({ cartNavi }) {
           </Link>
         </div>
       </div>
-      <button className="nav-cart" type="button" onClick={cartNavi}>
+      <button className="nav-cart-btn" type="button" onClick={cartNavi}>
         Cart
+        <CartIcon />
       </button>
     </div>
   );
