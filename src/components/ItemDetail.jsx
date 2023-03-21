@@ -55,9 +55,7 @@ function ItemDetail({ addToCart }) {
               <p>{details.rarity.name}</p>
               <p>{details.description}</p>
               {details.set ? <p>{details.set.partOf}</p> : ""}
-              {/* <p>{details.set.partOf}</p> */}
               <p>Available from: {details.releaseDate}</p>
-              {/* <p> {details.releaseDate}</p> */}
               <p className="price">{details.price}</p>
             </div>
 

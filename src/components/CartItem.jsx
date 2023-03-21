@@ -74,7 +74,6 @@ function CartItem({ item, total, setTotal }) {
         onClick={handleRemove}
       >
         &#10006;
-        {/* <TrashCan /> */}
       </button>
     </div>
   );
