@@ -51,5 +51,5 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.8.4"
   },
-  "homepage": "https://mlodzieniak.github.io/shopping-cart",
+  "homepage": "https://mlodzieniak.github.io/shopping-cart"
 }
