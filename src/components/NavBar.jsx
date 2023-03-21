@@ -1,9 +1,9 @@
-import { func } from "prop-types";
+import { func, number } from "prop-types";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ReactComponent as CartIcon } from "./svg/cart.svg";
 
-function Nav({ cartNavi }) {
+function Nav({ cartNavi, cartCount }) {
   const location = useLocation();
   const home = location.pathname === "/";
   const shop = /shop/.test(location.pathname);
@@ -33,12 +33,17 @@ function Nav({ cartNavi }) {
       <button className="nav-cart-btn" type="button" onClick={cartNavi}>
         Cart
         <CartIcon />
+        {cartCount ? <div className="cart-count">{cartCount}</div> : ""}
       </button>
     </div>
   );
 }
+Nav.defaultProps = {
+  cartCount: 0,
+};
 Nav.propTypes = {
   cartNavi: func.isRequired,
+  cartCount: number,
 };
 
 export default Nav;

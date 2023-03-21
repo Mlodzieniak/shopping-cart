@@ -31,7 +31,7 @@ function App() {
     <Router>
       <RemoverContext.Provider value={removeFromCart}>
         <div className="App">
-          <Nav cartNavi={moveCart} />
+          <Nav cartNavi={moveCart} cartCount={cartItems.length} />
           <Cart position={cartPos} cartNavi={moveCart} items={cartItems} />
 
           <Routes>

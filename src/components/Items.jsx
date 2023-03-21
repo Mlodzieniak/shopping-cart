@@ -28,42 +28,44 @@ function Items({ addToCart, itemType }) {
   }, []);
 
   return (
-    <div className="items">
+    <div className="items-wrapper">
       {loading ? (
         <Loading />
       ) : (
-        items
-          .filter((ele) => ele.type.id === itemType)
-          .filter((ele) => ele.price > 0)
-          .splice(0, 20)
-          .map((item) => (
-            <div key={item.id} className="shop-item-wrapper">
-              <img
-                className="shop-item-img"
-                src={item.images.icon}
-                alt={item.name}
-              />
-              <div className="shop-item-props">
-                <h3>{item.name}</h3>
-                <p className="price">{item.price}</p>
-                <Link to={`/item/${item.id}`}>
-                  <button className="info-btn" type="button">
-                    <p>More Info</p>
+        <div className="items">
+          {items
+            .filter((ele) => ele.type.id === itemType)
+            .filter((ele) => ele.price > 0)
+            .splice(0, 20)
+            .map((item) => (
+              <div key={item.id} className="shop-item-wrapper">
+                <img
+                  className="shop-item-img"
+                  src={item.images.icon}
+                  alt={item.name}
+                />
+                <div className="shop-item-props">
+                  <h3>{item.name}</h3>
+                  <p className="price">{item.price}</p>
+                  <Link to={`/item/${item.id}`}>
+                    <button className="info-btn" type="button">
+                      <p>More Info</p>
+                    </button>
+                  </Link>
+                  <button
+                    className="add-btn"
+                    type="button"
+                    onClick={() => addHandler(item)}
+                  >
+                    <p>Add to Cart</p>
+                    <div className="add-icon">
+                      <AddIcon />
+                    </div>
                   </button>
-                </Link>
-                <button
-                  className="add-btn"
-                  type="button"
-                  onClick={() => addHandler(item)}
-                >
-                  <p>Add to Cart</p>
-                  <div className="add-icon">
-                    <AddIcon />
-                  </div>
-                </button>
+                </div>
               </div>
-            </div>
-          ))
+            ))}
+        </div>
       )}
     </div>
   );
