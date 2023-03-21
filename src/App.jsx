@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import React, { createContext, useCallback, useState } from "react";
 import "./styles/App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import Nav from "./components/NavBar";
 import Shop from "./components/Shop";
@@ -28,7 +28,7 @@ function App() {
   });
 
   return (
-    <Router>
+    <Router basename="/">
       <RemoverContext.Provider value={removeFromCart}>
         <div className="App">
           <Nav cartNavi={moveCart} cartCount={cartItems.length} />
