@@ -13,28 +13,34 @@ function Cart({ items, position, cartNavi }) {
       style={{ transform: `translateX(${position}px)` }}
     >
       <div className="cart">
-        <h2 className="cart-title">Cart</h2>
-        <div className="cart-list">
-          {items.length > 0 ? (
-            items.map((item) => (
-              <CartItem
-                key={item.id}
-                item={item}
-                total={total}
-                setTotal={setTotal}
-              />
-            ))
-          ) : (
-            <h3>Cart is Empty</h3>
-          )}
+        <div>
+          <h2 className="cart-title">Cart</h2>
+          <div className="cart-list">
+            {items.length > 0 ? (
+              items.map((item) => (
+                <CartItem
+                  key={item.id}
+                  item={item}
+                  total={total}
+                  setTotal={setTotal}
+                />
+              ))
+            ) : (
+              <h3>Cart is Empty</h3>
+            )}
+          </div>
         </div>
-        <div className="total-price">
-          <p>
-            Total price:
-            {total.reduce((acc, red) => acc + red.price, 0)}
-          </p>
+        <div>
+          <div className="total-price">
+            <p>
+              Total price:
+              <p className="price">
+                {total.reduce((acc, red) => acc + red.price, 0)}
+              </p>
+            </p>
+          </div>
+          <button type="button">Checkout</button>
         </div>
-        <button type="button">Checkout</button>
         <button type="button" className="close-cart-btn" onClick={cartNavi}>
           X
         </button>
@@ -44,13 +50,11 @@ function Cart({ items, position, cartNavi }) {
 }
 Cart.defaultProps = {
   items: [],
-  //   position: 0,
 };
 Cart.propTypes = {
   items: arrayOf(object),
   position: number.isRequired,
   cartNavi: func.isRequired,
-  // removeFromCart: func.isRequired,
 };
 
 export default Cart;

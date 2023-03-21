@@ -44,34 +44,37 @@ function CartItem({ item, total, setTotal }) {
         />
       </div>
 
-      <div>
-        <p>Price:</p> <p>{item.price}</p>{" "}
-      </div>
-      <label htmlFor={item.id}>
-        <p>Amount:</p>
-        <div className="amount">
-          <button type="button" onClick={decreaseAmount}>
-            -
-          </button>
-          <input
-            className="amount-input"
-            id={item.id}
-            value={amount}
-            onChange={changeAmount}
-            type="number"
-          />
-          <button type="button" onClick={increaseAmount}>
-            +
-          </button>
+      <div className="cart-item-price-amount">
+        <div>
+          <p>Price:</p> <p className="price">{item.price}</p>{" "}
         </div>
-      </label>
+        <label htmlFor={item.id}>
+          {/* <p>Amount:</p> */}
+          <div className="amount">
+            <button type="button" onClick={decreaseAmount}>
+              -
+            </button>
+            <input
+              className="amount-input no-arrows"
+              id={item.id}
+              value={amount}
+              onChange={changeAmount}
+              type="number"
+            />
+            <button type="button" onClick={increaseAmount}>
+              +
+            </button>
+          </div>
+        </label>
+      </div>
 
       <button
         className="delete-from-cart-btn"
         type="button"
         onClick={handleRemove}
       >
-        X
+        &#10006;
+        {/* <TrashCan /> */}
       </button>
     </div>
   );
