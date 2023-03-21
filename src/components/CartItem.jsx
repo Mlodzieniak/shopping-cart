@@ -67,7 +67,6 @@ function CartItem({ item, total, setTotal }) {
           </div>
         </label>
       </div>
-
       <button
         className="delete-from-cart-btn"
         type="button"

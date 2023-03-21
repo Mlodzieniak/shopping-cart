@@ -189,6 +189,7 @@ a {
     flex-direction: column;
     gap: 0.3rem;
     overflow-y: scroll;
+    max-height: 70vh;
 }
 
 .cart-item {
