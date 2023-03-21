@@ -8,8 +8,8 @@ function Homepage() {
       <img src={fortnite} alt={fortnite} className="home-img" />
       <Link to="/shop/pickaxes">
         <div className="home-text">
-          <h1 className="text-with-background">FN-STORE</h1>
-          <p className="text-with-background">
+          <h1 className="text-with-background page-name">FN-STORE</h1>
+          <p className="text-with-background welcome-text">
             Gear up for victory! Find everything you need in our Fortnite item
             shop.
           </p>

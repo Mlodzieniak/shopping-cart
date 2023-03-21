@@ -49,19 +49,21 @@ function CartItem({ item, total, setTotal }) {
       </div>
       <label htmlFor={item.id}>
         <p>Amount:</p>
-        <input
-          className="amount-input"
-          id={item.id}
-          value={amount}
-          onChange={changeAmount}
-          type="number"
-        />
-        <button type="button" onClick={increaseAmount}>
-          +
-        </button>
-        <button type="button" onClick={decreaseAmount}>
-          -
-        </button>
+        <div className="amount">
+          <button type="button" onClick={decreaseAmount}>
+            -
+          </button>
+          <input
+            className="amount-input"
+            id={item.id}
+            value={amount}
+            onChange={changeAmount}
+            type="number"
+          />
+          <button type="button" onClick={increaseAmount}>
+            +
+          </button>
+        </div>
       </label>
 
       <button

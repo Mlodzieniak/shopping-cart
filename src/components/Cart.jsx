@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/forbid-prop-types */
 import React, { useState } from "react";
@@ -9,7 +10,7 @@ function Cart({ items, position, cartNavi }) {
   return (
     <div
       className="cart-wrapper"
-      style={{ transform: `translateX(${position}vw)` }}
+      style={{ transform: `translateX(${position}px)` }}
     >
       <div className="cart">
         <h2 className="cart-title">Cart</h2>

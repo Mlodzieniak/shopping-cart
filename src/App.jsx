@@ -12,11 +12,11 @@ import Cart from "./components/Cart";
 export const RemoverContext = createContext();
 
 function App() {
-  const [cartPos, setPosCart] = useState(40);
+  const [cartPos, setPosCart] = useState(400);
   const [cartItems, setCartItems] = useState([]);
 
   const moveCart = () => {
-    const result = cartPos === 0 ? setPosCart(40) : setPosCart(0);
+    const result = cartPos === 0 ? setPosCart(400) : setPosCart(0);
     return result;
   };
   const addToCart = (newItem) => {
