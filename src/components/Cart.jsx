@@ -39,10 +39,13 @@ function Cart({ items, position, cartNavi }) {
               </p>
             </p>
           </div>
-          <button type="button">Checkout</button>
+          <button type="button" className="checkout-btn">
+            Checkout
+          </button>
         </div>
         <button type="button" className="close-cart-btn" onClick={cartNavi}>
-          X
+          {/* X */}
+          &#10006;
         </button>
       </div>
     </div>
