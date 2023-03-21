@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/shopping-cart/static/css/main.0b7920bc.css",
-    "main.js": "/shopping-cart/static/js/main.fe9d744e.js",
+    "main.js": "/shopping-cart/static/js/main.f5625f37.js",
     "static/media/fortnite.avif": "/shopping-cart/static/media/fortnite.0a280a2a3f4e7c46a030.avif",
     "static/media/cart.svg": "/shopping-cart/static/media/cart.084cfaa9ccc7435578b83b8463bed20c.svg",
     "index.html": "/shopping-cart/index.html",
     "static/media/box-svgrepo-com.svg": "/shopping-cart/static/media/box-svgrepo-com.2fe813c63ac993318a8ebe06a72103bc.svg",
     "main.0b7920bc.css.map": "/shopping-cart/static/css/main.0b7920bc.css.map",
-    "main.fe9d744e.js.map": "/shopping-cart/static/js/main.fe9d744e.js.map"
+    "main.f5625f37.js.map": "/shopping-cart/static/js/main.f5625f37.js.map"
   },
   "entrypoints": [
     "static/css/main.0b7920bc.css",
-    "static/js/main.fe9d744e.js"
+    "static/js/main.f5625f37.js"
   ]
 }
